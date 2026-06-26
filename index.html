@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Коля, с возвращением домой!</title>
+  <meta name="description" content="Подарочный сайт для друга, который возвращается из армии. Фото, видео, любимый трек и история компании." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="В начало">
+      <span class="brand__mark">4</span>
+      <span class="brand__text">Коля дома • 4 снова в сборе</span>
+    </a>
+    <nav class="nav" aria-label="Главное меню">
+      <a href="#squad">Банда</a>
+      <a href="#gallery">Фото</a>
+      <a href="#videos">Видео</a>
+      <a href="#track">Трек</a>
+      <a href="#final">Финал</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section" aria-labelledby="hero-title">
+      <div class="hero__bg" aria-hidden="true">
+        <span class="orb orb--one"></span>
+        <span class="orb orb--two"></span>
+        <span class="orb orb--three"></span>
+        <span class="grid"></span>
+      </div>
+
+      <div class="hero__content reveal">
+        <p class="eyebrow">26.06.2026 • день возвращения</p>
+        <h1 id="hero-title">Коля, с возвращением домой!</h1>
+        <p class="hero__lead">26.06.2026 - день, когда Коля вернулся, а Саня, Егор и Богдан снова встречают своего пупсика.</p>
+
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#gallery">Открыть воспоминания</a>
+          <button class="btn btn--ghost" id="surpriseBtn" type="button">Запустить сюрприз</button>
+        </div>
+
+        <div class="hero__stats" role="list">
+          <div class="stat" role="listitem"><strong>4</strong><span>друга</span></div>
+          <div class="stat" role="listitem"><strong id="daysValue">0</strong><span id="daysLabel">дней ожидания</span></div>
+          <div class="stat" role="listitem"><strong>∞</strong><span>историй впереди</span></div>
+        </div>
+      </div>
+
+      <div class="hero__card reveal delay-1" aria-label="Карточка возвращения">
+        <div class="dogtag">
+          <span>наш герой</span>
+          <strong id="friendNameHero">Наш герой</strong>
+          <em>снова дома</em>
+        </div>
+        <div class="pulse-ring"></div>
+      </div>
+    </section>
+
+    <section class="section intro reveal" aria-labelledby="intro-title">
+      <p class="eyebrow">не сайт - капсула памяти</p>
+      <h2 id="intro-title">Тут есть нахуй всё: фотки, видосы, наш любимый трек и вайб нашей компании</h2>
+      <p>листай листай, че ждешь то</p>
+    </section>
+
+    <section class="section squad reveal" id="squad" aria-labelledby="squad-title">
+      <p class="eyebrow">наша банда</p>
+      <h2 id="squad-title">Четыре ебаклака. Одна история.</h2>
+      <div class="squad__grid" id="squadGrid"></div>
+    </section>
+
+    <section class="section gallery reveal" id="gallery" aria-labelledby="gallery-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">фотоархив</p>
+          <h2 id="gallery-title">Фотки, которые нельзя забыть</h2>
+        </div>
+        <label class="file-btn">
+          <input type="file" id="photoInput" accept="image/*" multiple>
+          Добавить фото на странице
+        </label>
+      </div>
+      <div class="gallery__grid" id="galleryGrid"></div>
+    </section>
+
+    <section class="section videos reveal" id="videos" aria-labelledby="videos-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">видео</p>
+          <h2 id="videos-title">ЗАВОЗЫ НИКОЛАЯ</h2>
+        </div>
+        <label class="file-btn">
+          <input type="file" id="videoInput" accept="video/*" multiple>
+          Добавить видео на странице
+        </label>
+      </div>
+      <div class="video__rail" id="videoRail"></div>
+    </section>
+
+    <section class="section track reveal" id="track" aria-labelledby="track-title">
+      <div class="track__panel">
+        <div class="track__copy">
+          <p class="eyebrow">лега трек</p>
+          <h2 id="track-title">запускай шарманку</h2>
+          <p>ебаная хуйня какая-то, трек не сохраняется, закинь что я тебе скинул :D</p>
+          <div class="track-actions">
+            <button class="btn btn--primary" id="playTrackBtn" type="button">Включить наш трек</button>
+            <label class="file-btn file-btn--dark">
+              <input type="file" id="audioInput" accept="audio/*">
+              Выбрать трек с компьютера
+            </label>
+          </div>
+        </div>
+
+        <div class="player" aria-label="Аудиоплеер">
+          <canvas id="visualizer" width="640" height="180"></canvas>
+          <div class="player__meta">
+            <span id="trackName">Наш легендарный трек</span>
+            <small id="trackHint">нажми кнопку «Включить наш трек»</small>
+          </div>
+          <audio id="audio" controls preload="auto"></audio>
+        </div>
+      </div>
+    </section>
+
+    <section class="section timeline reveal" aria-labelledby="timeline-title">
+      <p class="eyebrow">история</p>
+      <h2 id="timeline-title">Как это выглядит по-настоящему</h2>
+      <div class="timeline__list" id="timelineList"></div>
+    </section>
+
+    <section class="section final reveal" id="final" aria-labelledby="final-title">
+      <div class="final__box">
+        <p class="eyebrow">финал</p>
+        <h2 id="final-title">Коля, добро пожаловать домой.</h2>
+        <p>Мы ждали этот день. Мы ждали тебя!!!! Теперь мы снова в сборе: Коля, Саня, Егор и Богдан - один вайб, новые игры, новые встречи и новые воспоминания luv </p>
+        <div class="final__buttons">
+          <button class="btn btn--primary" id="toastBtn" type="button">Сгенерировать тост</button>
+          <button class="btn btn--ghost" id="bigFinalBtn" type="button">Финальный пук</button>
+        </div>
+        <p class="toast" id="toastText" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="modal" id="surpriseModal" aria-labelledby="modal-title">
+    <button class="modal__close" id="closeModal" type="button" aria-label="Закрыть">×</button>
+    <p class="eyebrow">сюрприз активирован</p>
+    <h2 id="modal-title">С возвращением домой!</h2>
+    <p>Сегодня всё снова на своих местах: Коля дома, Саня, Егор и Богдан рядом. Включайте трек, открывайте видосы и начинайте новую главу.</p>
+    <button class="btn btn--primary" id="confettiAgain" type="button">Ещё раз эффект</button>
+  </dialog>
+
+  <script src="site-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
